@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Http\Requests\StoreWebRequest as StoreWebRequest;
+use App\Models\Web as Web;
+use Auth;
 class WebController extends Controller
 {
     /**
@@ -13,7 +15,10 @@ class WebController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        $status = 1;
+        $arrayPages = $user->webs;
+        return compact("status","arrayPages");
     }
 
     /**
@@ -32,9 +37,16 @@ class WebController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreWebRequest $request)
     {
-        return $request->all();
+        $user = Auth::user();
+        //return $user;
+        $status = 1;
+        //$request->validated();
+        $web = Web::create($request->all());
+        $web->users_id = $user->id;
+        $web->save();
+        return compact("status","web");
     }
 
     /**

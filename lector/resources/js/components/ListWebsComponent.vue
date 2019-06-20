@@ -3,34 +3,54 @@
     <button class="btn btn-success" @click="addPage">Agregar Página</button>
     <hr>
     <div class="list-group">
-      <button type="button" class="list-group-item list-group-item-action active">Cras justo odio</button>
-      <button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
-      <button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
-      <button type="button" class="list-group-item list-group-item-action">Porta ac consectetur a 222222222   --------------  c</button>
       <button
+        v-for="page in  arrayPages"
+        :key="page.id"
         type="button"
         class="list-group-item list-group-item-action"
-        disabled
-      >Vestibulum at eros</button>
+        @click="viewDetail(page)"
+      >{{page.name}}</button>
     </div>
-    <create-web-modal ref="createWebModal"></create-web-modal>
+    <create-web-modal ref="createWebModal" @webCreated="loadListWebs"></create-web-modal>
   </section>
 </template>
 
 <script>
-import {mapState, mapMutations, mapActions} from "vuex";
+import { mapState, mapMutations, mapActions } from "vuex";
 export default {
   name: "list-webs-component",
-  mounted() {
-    console.log("mounted",$);
+  data() {
+    return {
+      arrayPages: []
+    };
   },
-  computed:{
+  mounted() {
+    this.loadListWebs();
+  },
+  computed: {
     ...mapState(["web"])
   },
-  methods:{
-    addPage(){
+  methods: {
+    addPage() {
       this.$refs.createWebModal.showModal();
       console.log("addPage");
+    },
+    viewDetail(page){
+      this.web = page;
+    },
+    loadListWebs() {
+      console.log("cargaremos la lista de la bwe ");
+      axios.get("/web").then(
+        res => {
+          console.log("eeee", res);
+          if (res.data.status == 1) {
+            this.arrayPages = res.data.arrayPages;
+          }
+        },
+        error => {
+          console.log("no hay sesion");
+        }
+      );
     }
   }
 };

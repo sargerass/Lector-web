@@ -24,6 +24,21 @@
             method="post"
           >
             <div class="form-group">
+              <label for="formGroupExampleInput">Nombre</label>
+              <input
+                type="text"
+                class="form-control"
+                v-model="web.name"
+                name="name"
+                id="name"
+                :class="{'form_error':errors.first('name')}"
+                placeholder="Ingresa su nombre"
+                v-validate="{required:true }"
+                required
+              >
+              <span>{{ errors.first('url') }}</span>
+            </div>
+            <div class="form-group">
               <label for="formGroupExampleInput">url</label>
               <input
                 type="url"
@@ -109,9 +124,12 @@ export default {
       if(this.errors.items.length == 0){
         
         axios.post("/web", this.web).then( (res) =>{
-          console.log("resutlado", res);
+          if(res.data.status == 1){
+            $(this.$refs.modal).moda('hide');
+            this.$emit("webCreated");
+          }
         },error=>{
-          console.log("resutlado", error);
+
         });
         
       }

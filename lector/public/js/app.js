@@ -1860,19 +1860,39 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "list-webs-component",
+  data: function data() {
+    return {
+      arrayPages: []
+    };
+  },
   mounted: function mounted() {
-    console.log("mounted", $);
+    this.loadListWebs();
   },
   computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["web"])),
   methods: {
     addPage: function addPage() {
       this.$refs.createWebModal.showModal();
       console.log("addPage");
+    },
+    viewDetail: function viewDetail(page) {
+      this.web = page;
+    },
+    loadListWebs: function loadListWebs() {
+      var _this = this;
+
+      console.log("cargaremos la lista de la bwe ");
+      axios.get("/web").then(function (res) {
+        console.log("eeee", res);
+
+        if (res.data.status == 1) {
+          _this.arrayPages = res.data.arrayPages;
+        }
+      }, function (error) {
+        console.log("no hay sesion");
+      });
     }
   }
 });
@@ -1913,7 +1933,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   mounted: function mounted() {
     console.log("Component mounted.");
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["web"]))
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["web"])),
+  methods: {}
 });
 
 /***/ }),
@@ -2052,6 +2073,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "create-web-modal",
@@ -2068,14 +2104,18 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     checkForm: function checkForm(e) {
+      var _this = this;
+
       e.preventDefault();
 
       if (this.errors.items.length == 0) {
         axios.post("/web", this.web).then(function (res) {
-          console.log("resutlado", res);
-        }, function (error) {
-          console.log("resutlado", error);
-        });
+          if (res.data.status == 1) {
+            $(_this.$refs.modal).moda('hide');
+
+            _this.$emit("webCreated");
+          }
+        }, function (error) {});
       }
 
       console.log("---", this.web, this.errors);
@@ -49145,66 +49185,37 @@ var render = function() {
       _vm._v(" "),
       _c("hr"),
       _vm._v(" "),
-      _vm._m(0),
+      _c(
+        "div",
+        { staticClass: "list-group" },
+        _vm._l(_vm.arrayPages, function(page) {
+          return _c(
+            "button",
+            {
+              key: page.id,
+              staticClass: "list-group-item list-group-item-action",
+              attrs: { type: "button" },
+              on: {
+                click: function($event) {
+                  return _vm.viewDetail(page)
+                }
+              }
+            },
+            [_vm._v(_vm._s(page.name))]
+          )
+        }),
+        0
+      ),
       _vm._v(" "),
-      _c("create-web-modal", { ref: "createWebModal" })
+      _c("create-web-modal", {
+        ref: "createWebModal",
+        on: { webCreated: _vm.loadListWebs }
+      })
     ],
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "list-group" }, [
-      _c(
-        "button",
-        {
-          staticClass: "list-group-item list-group-item-action active",
-          attrs: { type: "button" }
-        },
-        [_vm._v("Cras justo odio")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "list-group-item list-group-item-action",
-          attrs: { type: "button" }
-        },
-        [_vm._v("Dapibus ac facilisis in")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "list-group-item list-group-item-action",
-          attrs: { type: "button" }
-        },
-        [_vm._v("Morbi leo risus")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "list-group-item list-group-item-action",
-          attrs: { type: "button" }
-        },
-        [_vm._v("Porta ac consectetur a 222222222   --------------  c")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "list-group-item list-group-item-action",
-          attrs: { type: "button", disabled: "" }
-        },
-        [_vm._v("Vestibulum at eros")]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -49256,18 +49267,13 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("section", { staticClass: "single_web" }, [
-      _c("h2", { staticClass: "single_web_title" })
+  return _c("section", { staticClass: "single_web" }, [
+    _c("h2", { staticClass: "single_web_title" }, [
+      _vm._v("\n    " + _vm._s(_vm.web.name) + "\n  ")
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -49323,6 +49329,49 @@ var render = function() {
                 on: { submit: _vm.checkForm }
               },
               [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", { attrs: { for: "formGroupExampleInput" } }, [
+                    _vm._v("Nombre")
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.web.name,
+                        expression: "web.name"
+                      },
+                      {
+                        name: "validate",
+                        rawName: "v-validate",
+                        value: { required: true },
+                        expression: "{required:true }"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    class: { form_error: _vm.errors.first("name") },
+                    attrs: {
+                      type: "text",
+                      name: "name",
+                      id: "name",
+                      placeholder: "Ingresa su nombre",
+                      required: ""
+                    },
+                    domProps: { value: _vm.web.name },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.$set(_vm.web, "name", $event.target.value)
+                      }
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c("span", [_vm._v(_vm._s(_vm.errors.first("url")))])
+                ]),
+                _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", { attrs: { for: "formGroupExampleInput" } }, [
                     _vm._v("url")

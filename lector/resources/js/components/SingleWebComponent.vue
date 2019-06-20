@@ -1,7 +1,7 @@
 <template>
   <section class="single_web">
     <h2 class="single_web_title">
-
+      {{web.name}}
     </h2>
   </section>
 </template>
