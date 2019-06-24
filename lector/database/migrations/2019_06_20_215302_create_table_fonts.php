@@ -16,9 +16,9 @@ class CreateTableFonts extends Migration
         Schema::create('fonts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('route');
-            $table->unsignedBigInteger('webs_id')->nullable();
-            $table->foreign('webs_id')->references('id')->on('webs');
+            $table->string('route')->nullable();
+            $table->unsignedBigInteger('web_id')->nullable();
+            $table->foreign('web_id')->references('id')->on('webs');
         });
     }
 

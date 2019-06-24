@@ -19,8 +19,8 @@ class CreateTableWebs extends Migration
             $table->string('description');
             $table->string('url')->unique();            
             $table->longText('data');
-            $table->unsignedBigInteger('users_id')->nullable();
-            $table->foreign('users_id')->references('id')->on('users');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

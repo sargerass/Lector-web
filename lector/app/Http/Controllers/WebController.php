@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreWebRequest as StoreWebRequest;
 use App\Models\Web as Web;
+use App\Models\Color as Color;
+use App\Models\Font as Font;
+use App\Models\Image as Image;
 use Auth;
 class WebController extends Controller
 {
@@ -18,6 +21,7 @@ class WebController extends Controller
         $user = Auth::user();
         $status = 1;
         $arrayPages = $user->webs;
+        
         return compact("status","arrayPages");
     }
 
@@ -40,12 +44,14 @@ class WebController extends Controller
     public function store(StoreWebRequest $request)
     {
         $user = Auth::user();
-        //return $user;
         $status = 1;
-        //$request->validated();
         $web = Web::create($request->all());
-        $web->users_id = $user->id;
+        $web->user_id = $user->id;
         $web->save();
+        $data = json_decode($request->data);
+        Color::saveInfo($web->id,$data->arrayColores);
+        Font::saveInfo($web->id,$data->arrayFuentes);
+        Image::saveInfo($web->id,$data->arrayImagenes);
         return compact("status","web");
     }
 
@@ -55,9 +61,14 @@ class WebController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Web $web)
     {
-        //
+        $user = Auth::user();
+        $arrayImages = $web->images;
+        $arrayFonts = $web->fonts;
+        $arrayColors = $web->colors;
+        $sesion = Auth::user()?true:false;
+        return compact("web","sesion","arrayImages","arrayFonts","arrayColors");
     }
 
     /**
@@ -93,4 +104,5 @@ class WebController extends Controller
     {
         //
     }
+    
 }

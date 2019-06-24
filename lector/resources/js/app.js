@@ -28,10 +28,10 @@ Validator.localize(dictionaryForms);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 
-Vue.component('list-webs-component', require('./components/ListWebsComponent.vue').default);
-Vue.component('panel-webs-component', require('./components/PanelWebsComponent.vue').default);
-Vue.component('single-web-component', require('./components/SingleWebComponent.vue').default);
-Vue.component('create-web-modal', require('./modals/CreateWebModal.vue').default);
+Vue.component('list-webs-container', require('./components/containers/ListWebsContainer.vue').default);
+Vue.component('panel-webs-container', require('./components/containers/PanelWebsContainer.vue').default);
+Vue.component('single-web-container', require('./components/containers/SingleWebContainer.vue').default);
+Vue.component('create-web-modal', require('./components/modals/CreateWebModal.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

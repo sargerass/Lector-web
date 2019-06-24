@@ -17,8 +17,8 @@ class CreateTableColors extends Migration
             $table->bigIncrements('id');
             $table->string('rgb');
             $table->string('hexa');
-            $table->unsignedBigInteger('webs_id')->nullable();
-            $table->foreign('webs_id')->references('id')->on('webs');
+            $table->unsignedBigInteger('web_id')->nullable();
+            $table->foreign('web_id')->references('id')->on('webs');
         });
     }
 

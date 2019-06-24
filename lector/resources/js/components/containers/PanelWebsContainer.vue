@@ -15,9 +15,9 @@
 <script>
 import {mapState, mapMutations, mapActions} from "vuex";
 export default {
-  name:"panel-webs-component",
+  name:"panel-webs-container",
   mounted() {
-    console.log("Component mounted.");
+    
   },
   computed:{
     ...mapState(["web"])

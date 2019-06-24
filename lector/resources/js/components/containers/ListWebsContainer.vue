@@ -17,8 +17,9 @@
 
 <script>
 import { mapState, mapMutations, mapActions } from "vuex";
+import { EventBus } from "../../services/EventBus.js";
 export default {
-  name: "list-webs-component",
+  name: "list-webs-container",
   data() {
     return {
       arrayPages: []
@@ -36,7 +37,10 @@ export default {
       console.log("addPage");
     },
     viewDetail(page){
-      this.web = page;
+      console.log("pagee",page);
+      this.web.data = page;
+      EventBus.$emit("loadInfoWeb");
+      
     },
     loadListWebs() {
       console.log("cargaremos la lista de la bwe ");

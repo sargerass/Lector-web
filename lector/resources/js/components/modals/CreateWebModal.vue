@@ -125,7 +125,7 @@ export default {
         
         axios.post("/web", this.web).then( (res) =>{
           if(res.data.status == 1){
-            $(this.$refs.modal).moda('hide');
+            $(this.$refs.modal).modal('hide');
             this.$emit("webCreated");
           }
         },error=>{
