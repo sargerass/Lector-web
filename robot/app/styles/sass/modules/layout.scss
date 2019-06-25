@@ -1,0 +1,25 @@
+body {
+  background-color: #ffc;
+}
+
+.miriada {
+  font-family: 'Myriad-pro', sans-serif;
+}
+
+.open-sans {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.noseusa {
+  background: peru;
+}
+
+a {
+  &.active {
+    font-weight: bold;
+  }
+
+  &:hover {
+    color: red !important;
+  }
+}

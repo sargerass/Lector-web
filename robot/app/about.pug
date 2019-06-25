@@ -1,0 +1,43 @@
+extends layout/master_page.pug
+
+block header
+  ul
+    li
+      a(href="/") Home
+    li
+      a(href="/about" class="active") About
+    li
+      a(href="/login") Login
+    li
+      a(href="/register") Register
+
+block content
+  include layout/components/search_bar
+  include layout/mixins/pet
+  p this is the about body content
+  img(src='./images/portrait_iron_man.png' alt='iron man portrait')
+  ul
+    -
+      var persons = [
+        {
+          "name": "Clark",
+          "lastname": "Evans",
+          "id": 39467890
+        },
+        {
+          "name": "Sara",
+          "lastname": "Connors",
+          "id": 78694500
+        },
+        {
+          "name": "Oliver",
+          "lastname": "Atom",
+          "id": "38784520i"
+        }
+      ]
+
+    each value, index in persons
+        +pet(index, value)
+
+block bottom
+  p esto es un bottom personalizado para about

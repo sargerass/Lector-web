@@ -137,7 +137,7 @@ export default {
     },
     showModal() {
       $(this.$refs.modal).modal();
-      console.log("mira modal");
+      this.web.data = {};
     }
   }
 };

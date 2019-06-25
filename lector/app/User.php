@@ -38,6 +38,6 @@ class User extends Authenticatable
     ];
     public function webs()
     {
-        return $this->hasMany('App\Models\Web');
+        return $this->hasMany('App\Models\Web')->where("status","active");
     }
 }

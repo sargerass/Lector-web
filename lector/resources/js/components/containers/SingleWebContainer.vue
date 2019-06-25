@@ -1,14 +1,21 @@
 <template>
   <article class="single_web">
-    <h2 class="single_web_title">
-      {{web.data.name}}
-    </h2>
+    <div class="row">
+      <div class="col-md-9">
+        <h2 class="single_web_title">
+          {{web.data.name}}
+        </h2>
+      </div>
+      <div class="col-md-3 text-right">
+        <button class="btn btn-danger" @click="deleteWeb">
+          Eliminar
+        </button>
+      </div>
+    </div>    
     <p>
       {{web.data.description}}
     </p>
-    <div>
-      {{web.data}}
-    </div>
+    
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item">
         <a class="nav-link active" id="imagenes-tab" data-toggle="tab" href="#imagenes" role="tab" aria-controls="imagenes" aria-selected="true">Imagenes</a>
@@ -29,10 +36,18 @@
         </div>
       </div>
       <div class="tab-pane fade" id="colores" role="tabpanel" aria-labelledby="colores-tab">
-        colores
+        <div class="row">
+          <div class="col-md-3" v-for="(color) in arrayColors" :key="color.id">
+            <color-presentation :color="color" ></color-presentation>
+          </div>
+        </div>
       </div>
       <div class="tab-pane fade" id="fuentes" role="tabpanel" aria-labelledby="fuentes-tab">
-        fuentes
+        <div class="row">
+          <div class="col-md-4" v-for="(font) in arrayFonts" :key="font.id">
+            <font-presentation :font="font" ></font-presentation>
+          </div>
+        </div>
       </div>
     </div>
   </article>
@@ -45,6 +60,8 @@
 <script>
 import {EventBus} from "../../services/EventBus.js";
 import ImagePresentation from "../presentations/ImagePresentation.vue";
+import ColorPresentation from "../presentations/ColorPresentation.vue";
+import FontPresentation from "../presentations/FontPresentation.vue";
 import {mapState, mapMutations, mapActions} from "vuex";
 export default {
   name: "single-web-container",
@@ -56,16 +73,23 @@ export default {
     };
   },
   mounted() {
-    console.log("Component mounted.");
     EventBus.$on("loadInfoWeb",this.loadInfo);
   },
   components:{
-    ImagePresentation
+    ImagePresentation,ColorPresentation,FontPresentation
   },
   computed:{
     ...mapState(["web"])
   },
   methods:{
+    deleteWeb(){
+      
+      axios.delete("/web/"+this.web.data.id).then( (res) =>{
+        console.log("llego", res, res.data);
+      }, error => {
+        
+      } )
+    },
     loadInfo(){
       console.log("load data");
       axios.get("/web/"+this.web.data.id).then( (res) =>{

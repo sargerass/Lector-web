@@ -8,9 +8,14 @@ require('./bootstrap');
 import Vuex from 'vuex'
 import VeeValidate from "vee-validate";
 import { Validator } from 'vee-validate';
+
+import Clipboard from 'v-clipboard';
+ 
+
 window.Vue = require('vue');
 
 Vue.use(Vuex);
+Vue.use(Clipboard);
 Vue.use(VeeValidate,{
     locale:"es"
 });
@@ -32,6 +37,7 @@ Vue.component('list-webs-container', require('./components/containers/ListWebsCo
 Vue.component('panel-webs-container', require('./components/containers/PanelWebsContainer.vue').default);
 Vue.component('single-web-container', require('./components/containers/SingleWebContainer.vue').default);
 Vue.component('create-web-modal', require('./components/modals/CreateWebModal.vue').default);
+Vue.component('lector-script-modal', require('./components/modals/LectorScriptModal.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

@@ -1,7 +1,7 @@
 <template>
-  <div class="image_single">
+  <div class="image_presentation">
     <div class="card" >
-      <div class="image_single_image" :style="{'background-image':`url('${image.link}')`}">
+      <div class="image_presentation_image" :style="{'background-image':`url('${image.link}')`}">
 
       </div>
       <div class="card-body">
@@ -18,7 +18,7 @@
   </div>  
 </template>
 <style lang="scss" scoped>
-  .image_single{
+  .image_presentation{
     margin-bottom: 1rem;
     &_image{
       margin:1rem;
@@ -37,7 +37,7 @@ export default {
   name:"image-presentation",
   props:["image"],
   mounted() {
-    console.log("Component mounted.");
+    
   },
   computed:{
     ...mapState(["web"])

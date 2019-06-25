@@ -1,0 +1,91 @@
+// telefónica fonts
+
+@font-face {
+  font-family: 'Telefonica-Bold';
+  src: url('../../../fonts/TelefonicaWeb-Bold.eot');
+  src: local('0'), url('../../../fonts/TelefonicaWeb-Bold.woff') format('woff'),
+    url('../../../fonts/Telefonica-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'TelefonicaCap-Regular';
+  src: url('../../../fonts/TelefonicaCapWeb-Regular.eot');
+  src: local('0'),
+    url('../../../fonts/TelefonicaCapWeb-Regular.woff') format('woff'),
+    url('../../../fonts/TelefonicaCap-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Telefonica-Light';
+  src: url('../../../fonts/TelefonicaWeb-Light.eot');
+  src: local('0'), url('../../../fonts/TelefonicaWeb-Light.woff') format('woff'),
+    url('../../../fonts/Telefonica-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Telefonica-Regular';
+  src: url('../../../fonts/TelefonicaWeb-Regular.eot');
+  src: local('0'),
+    url('../../../fonts/TelefonicaWeb-Regular.woff') format('woff'),
+    url('../../../fonts/Telefonica-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'MovistarText';
+  src: url('../../../fonts/TelefonicaWeb-Regular.eot');
+  src: local('0'),
+    url('../../../fonts/TelefonicaWeb-Regular.woff') format('woff'),
+    url('../../../fonts/Telefonica-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Telefonica-Hand';
+  src: url('../../../fonts/TelefonicaWeb-Hand.eot');
+  src: local('0'), url('../../../fonts/TelefonicaWeb-Hand.woff') format('woff'),
+    url('../../../fonts/Telefonica-Hand.ttf') format('truetype');
+}
+
+// other fonts
+
+@font-face {
+  font-family: 'Myriad-pro';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../../../fonts/myriadpro-cond.eot');
+  src: url('../../../fonts/myriadpro-cond.eot#iefix')
+      format('embedded-opentype'),
+    url('../../../fonts/myriadpro-cond.ttf') format('truetype'),
+    url('../../../fonts/myriadpro-cond.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Myriad-pro';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../../../fonts/myriadpro-boldcond.eot');
+  src: url('../../../fonts/myriadpro-boldcond.eot#iefix')
+      format('embedded-opentype'),
+    url('../../../fonts/myriadpro-boldcond.ttf') format('truetype'),
+    url('../../../fonts/myriadpro-boldcond.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Myriad-pro';
+  font-style: 300;
+  font-weight: 300;
+  src: url('../../../fonts/myriadpro-cond.eot');
+  src: url('../../../fonts/myriadpro-cond.eot#iefix')
+      format('embedded-opentype'),
+    url('../../../fonts/myriadpro-cond.ttf') format('truetype'),
+    url('../../../fonts/myriadpro-cond.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans Regular'), local('OpenSans-Regular'),
+    url('../../../fonts/open-sans-regular.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC,
+    U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}

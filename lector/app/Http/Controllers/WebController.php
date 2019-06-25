@@ -100,9 +100,18 @@ class WebController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Web $web)
     {
-        //
+        $user = Auth::user();
+        if($user->id == $web->user_id){
+            $web->status = "inactive";
+            $web->save();
+        }
+        else{
+            return ["status"=>0];
+        }
+        
+        return ["status"=>1];
     }
     
 }

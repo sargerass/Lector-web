@@ -5,7 +5,7 @@
         <list-webs-container></list-webs-container>
       </div>
       <div class="col-md-8">
-        <single-web-container></single-web-container>
+        <single-web-container v-if="web.data.id"></single-web-container>
       </div>
     </div>
   </div>  

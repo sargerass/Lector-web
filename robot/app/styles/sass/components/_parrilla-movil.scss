@@ -1,0 +1,82 @@
+@import '../globals/_variables.scss';
+
+.parrilla-movil {
+  color: $negrito;
+  text-align: center;
+
+  &__promotional-header {
+    background: #5bc500 !important;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    color: white;
+    height: 146px;
+    padding: 24px 0;
+
+    h1 {
+      font-size: 37px;
+      line-height: 1em;
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 27px;
+      line-height: 1.5em;
+    }
+
+    .extra {
+      font-size: 19px;
+    }
+  }
+
+  &__content {
+    background: white;
+    box-shadow: 0 2px 10px -2px rgba(0, 0, 0, 0.18);
+    min-height: 455px;
+    padding: 10px 30px 0;
+  }
+
+  &-item {
+    border-bottom: 1px solid #edeeed;
+    min-height: 52px;
+
+    &__header,
+    &__footer {
+      margin-bottom: 10px;
+      margin-top: 7px;
+    }
+
+    &__header {
+      font-size: 16px;
+
+      &--call-and-sms {
+        font-size: 14px;
+      }
+    }
+
+    &__footer {
+      color: #86888c;
+      font-size: 14px;
+
+      &--call-and-sms {
+        font-size: 16px;
+      }
+    }
+
+    &__02header,
+    &__02footer {
+      font-size: 14px;
+      margin-bottom: 10px;
+      margin-top: 7px;
+    }
+
+    &__02footer {
+      color: $gris !important;
+      font-size: 16px;
+    }
+
+    img {
+      margin-bottom: 12px;
+      margin-top: 12px;
+    }
+  }
+}
