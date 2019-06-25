@@ -2,6 +2,6 @@
 
 @section('content')
 <div class="container">
-    <panel-webs-component></panel-webs-component>
+    <panel-webs-container></panel-webs-container>
 </div>
 @endsection

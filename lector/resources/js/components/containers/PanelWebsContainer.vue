@@ -2,13 +2,12 @@
   <div class="panel_webs">
     <div class="row">
       <div class="col-md-4">
-        <list-webs-component></list-webs-component>
+        <list-webs-container></list-webs-container>
       </div>
       <div class="col-md-8">
-        <single-web-component></single-web-component>
+        <single-web-container></single-web-container>
       </div>
     </div>
-    
   </div>  
 </template>
 

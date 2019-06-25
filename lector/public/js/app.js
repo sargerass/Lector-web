@@ -1930,7 +1930,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "panel-webs-container",
@@ -49410,9 +49409,9 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "panel_webs" }, [
     _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-4" }, [_c("list-webs-component")], 1),
+      _c("div", { staticClass: "col-md-4" }, [_c("list-webs-container")], 1),
       _vm._v(" "),
-      _c("div", { staticClass: "col-md-8" }, [_c("single-web-component")], 1)
+      _c("div", { staticClass: "col-md-8" }, [_c("single-web-container")], 1)
     ])
   ])
 }
