@@ -1,0 +1,1 @@
+var pelao=2,perro="odie",juan=1;

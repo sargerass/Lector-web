@@ -3,6 +3,6 @@ export default class LoadData {
     console.log('este es el construtcotr')
   }
   render() {
-    console.log('inicio render');
+    console.log('inicio render')
   }
 }

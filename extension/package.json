@@ -1,0 +1,25 @@
+{
+  "name": "lector_page",
+  "version": "1.0.0",
+  "description": "Lector de recuros de una web",
+  "main": "app.js",
+  "scripts": {
+    "test": "prod"
+  },
+  "keywords": [
+    "read",
+    "resources",
+    "page"
+  ],
+  "author": "Guillermo Asto",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-uglify": "^3.0.2"
+  }
+}
