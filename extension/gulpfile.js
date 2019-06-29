@@ -12,9 +12,9 @@ gulp.task('minify-js', function () {
   .pipe(babel({
     presets: ['@babel/env']
   }))
-  .pipe(concat('app.min.js'))
+  .pipe(concat('lector.js'))
   .pipe(uglify())
-  .pipe(gulp.dest('dist/'))
+  .pipe(gulp.dest('../lector/public/assets/'))
 });
 
 // Tarea 2 llamada minify-css
