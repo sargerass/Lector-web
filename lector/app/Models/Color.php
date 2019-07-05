@@ -25,17 +25,20 @@ class Color extends Model
         }
         else{
             $color = str_replace(["rgb","(",")"," "],"",$color);
-            $color = "rgba($color,255)";
+            $color = "rgba($color,1)";
         }
         return $color;
     }
     private static function getColorHexa($color){
         $color = str_replace(["rgba","(",")"],"",$color);
         $ar = explode(",",$color);
-        $help = array_splice($ar,3,1);
-        $ar = array_merge($help,$ar);
+        //$help = array_splice($ar,3,1);
+        //$ar = array_merge($help,$ar);
         $arrayChannels = [];
         foreach ($ar as $key => $value) {
+            if($key == 3){
+                $value = 255*$value;
+            }
             $arrayChannels[] = Color::getChannel($value);
         }
         /*

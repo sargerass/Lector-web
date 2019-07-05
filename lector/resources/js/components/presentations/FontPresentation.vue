@@ -1,10 +1,10 @@
 <template>
-  <div class="font_presentation">
+  <div class="font-presentation">
     {{font}}
   </div>  
 </template>
 <style lang="scss" scoped>
-  .font_presentation{
+  .font-presentation{
     margin-bottom: 1rem;
   }
 </style>

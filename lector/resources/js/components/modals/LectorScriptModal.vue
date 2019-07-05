@@ -1,6 +1,6 @@
 <template>
   <div
-    class="lector_script_modal modal fade"
+    class="lector-script-modal modal fade"
     ref="modal"
     :id="idModal"
     tabindex="-1"
@@ -33,7 +33,7 @@
   </div>
 </template>
 <style lang="scss">
-  .lector_script_modal{
+  .lector-script-modal{
     
   }
 </style>

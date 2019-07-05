@@ -1,7 +1,7 @@
 <template>
-  <div class="color_presentation">
-    <div class="color_presentation_box" :style="{'background':color.rgba}"></div>
-    <div class="color_presentation_codigos">
+  <div class="color-presentation">
+    <div class="color-presentation__box" :style="{'background':color.rgba}"></div>
+    <div class="color-presentation__codigos">
       {{color.rgba}}
       <br>
       {{color.hexa}}
@@ -9,16 +9,16 @@
   </div>  
 </template>
 <style lang="scss" scoped>
-  .color_presentation{
+  .color-presentation{
     margin-bottom: 1rem;    
-    &_box{
+    &__box{
       &::before{
         content:"";
         display: block;
         padding-top: 100%;
       }
     }
-    &_codigos{
+    &__codigos{
       font-size: .8rem;
       font-weight: bold;
     }

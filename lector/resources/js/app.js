@@ -8,6 +8,7 @@ require('./bootstrap');
 import Vuex from 'vuex'
 import VeeValidate from "vee-validate";
 import { Validator } from 'vee-validate';
+import Notifications from 'vue-notification';
 
 import Clipboard from 'v-clipboard';
  
@@ -16,6 +17,7 @@ window.Vue = require('vue');
 
 Vue.use(Vuex);
 Vue.use(Clipboard);
+Vue.use(Notifications);
 Vue.use(VeeValidate,{
     locale:"es"
 });

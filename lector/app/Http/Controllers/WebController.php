@@ -49,9 +49,9 @@ class WebController extends Controller
         $web->user_id = $user->id;
         $web->save();
         $data = json_decode($request->data);
-        Color::saveInfo($web->id,$data->arrayColores);
-        Font::saveInfo($web->id,$data->arrayFuentes);
-        Image::saveInfo($web->id,$data->arrayImagenes);
+        Color::saveInfo($web->id,$data->arrayColors);
+        Font::saveInfo($web->id,$data->arrayFonts);
+        Image::saveInfo($web->id,$data->arrayImages);
         return compact("status","web");
     }
 

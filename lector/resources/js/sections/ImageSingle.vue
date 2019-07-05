@@ -1,7 +1,7 @@
 <template>
-  <div class="image_single">
+  <div class="image-single">
     <div class="card" >
-      <div class="image_single_image" :style="{'background-image':`url('${image.link}')`}">
+      <div class="image_single__image" :style="{'background-image':`url('${image.link}')`}">
 
       </div>
       <div class="card-body">
@@ -18,9 +18,9 @@
   </div>  
 </template>
 <style lang="scss" scoped>
-  .image_single{
+  .image-single{
     margin-bottom: 1rem;
-    &_image{
+    &__image{
       margin:1rem;
       height: 150px;
       background-size:contain;

@@ -3,14 +3,24 @@ import Vue from "vue";
 import Vuex from 'vuex';
 Vue.use(Vuex);
 export const store = new Vuex.Store({
-	state:{
-    web:{
-			data:{}
+	state: {
+		web: {
+			data: {}
+		},
+		views:{
+
 		}
 	},
-	actions:{
+	actions: {
 
 	},
-	mutations:{
+	mutations: {
+		showNotification(state,options){
+			state.views.panel.$notify({
+				group: 'notificacion',
+				position: "bottom right",
+				...options
+      });
+		}
 	}
 });

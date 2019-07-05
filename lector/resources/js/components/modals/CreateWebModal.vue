@@ -1,6 +1,6 @@
 <template>
   <div
-    class="create_web_modal modal fade"
+    class="create-web-modal modal fade"
     ref="modal"
     :id="idModal"
     tabindex="-1"
@@ -31,7 +31,7 @@
                 v-model="web.name"
                 name="name"
                 id="name"
-                :class="{'form_error':errors.first('name')}"
+                :class="{'create-web-modal__form-error':errors.first('name')}"
                 placeholder="Ingresa su nombre"
                 v-validate="{required:true }"
                 required
@@ -46,7 +46,7 @@
                 v-model="web.url"
                 name="url"
                 id="url"
-                :class="{'form_error':errors.first('url')}"
+                :class="{'create-web-modal__form-error':errors.first('url')}"
                 placeholder="Ingresa la url"
                 v-validate="{required:true,url: {require_protocol: true }}"
                 required
@@ -62,7 +62,7 @@
                 name="description"
                 id="description"
                 placeholder="Descripción"
-                :class="{'form_error':errors.first('description')}"
+                :class="{'create-web-modal__form-error':errors.first('description')}"
                 v-validate="{required:true}"
                 required
               >
@@ -71,7 +71,7 @@
             <div class="form-group">
               <label for="formGroupExampleInput2">Data</label>
               <textarea v-model="web.data" cols="30" rows="10" name="data" id="data" class="form-control" v-validate="{required:true}" 
-                :class="{'form_error':errors.first('data')}"
+                :class="{'create-web-modal__form-error':errors.first('data')}"
                 required
               >
               </textarea>
@@ -94,8 +94,8 @@
   </div>
 </template>
 <style lang="scss">
-  .create_web_modal{
-    .form_error{
+  .create-web-modal{
+    &__form-error{
       border:1px solid #f00;
     }
   }

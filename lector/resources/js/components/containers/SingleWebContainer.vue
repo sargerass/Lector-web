@@ -1,8 +1,8 @@
 <template>
-  <article class="single_web">
+  <article class="single-web-container">
     <div class="row">
       <div class="col-md-9">
-        <h2 class="single_web_title">
+        <h2 class="single-web-container__title">
           {{web.data.name}}
         </h2>
       </div>
@@ -82,10 +82,17 @@ export default {
     ...mapState(["web"])
   },
   methods:{
-    deleteWeb(){
-      
+    ...mapMutations(['showNotification']),
+    deleteWeb(){      
       axios.delete("/web/"+this.web.data.id).then( (res) =>{
         console.log("llego", res, res.data);
+        this.web.data.id = false;
+        EventBus.$emit("reloadListpage");
+        this.showNotification({
+          title:"Página eliminada",
+          text:`Se elimino la página ${this.web.data.name}`,
+          type:"error"
+        })
       }, error => {
         
       } )
