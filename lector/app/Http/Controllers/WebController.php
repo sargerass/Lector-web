@@ -32,7 +32,11 @@ class WebController extends Controller
      */
     public function create()
     {
-        //
+        $arrayImages = Image::all();
+        foreach ($arrayImages as $key => $value) {
+            $link = $value->value;
+        }
+        return $arrayImages;
     }
 
     /**

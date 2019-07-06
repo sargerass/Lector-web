@@ -72,8 +72,13 @@ export default {
       arrayColors:[]
     };
   },
-  mounted() {
+  created(){
     EventBus.$on("loadInfoWeb",this.loadInfo);
+    
+  },
+  mounted() {
+    //EventBus.$on("loadInfoWeb",this.loadInfo);
+    this.loadInfo();
   },
   components:{
     ImagePresentation,ColorPresentation,FontPresentation

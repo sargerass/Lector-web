@@ -17,7 +17,7 @@
     btnReadDocument.html("Leer info");
     btnReadDocument.css({
       position: 'fixed',
-      top: 0, right: 0, 'z-index': 100,
+      top: 0, right: 0, 'z-index': 1000000,
       background: '#000', color: '#fff',
       'font-size': '20px', padding: '10px 30px'
     })
@@ -31,7 +31,7 @@
     lblData.val(JSON.stringify(data));
     lblData.css({
       position: 'fixed',
-      top: 0, left: 0, 'z-index': 100,
+      top: 0, left: 0, 'z-index': 100000,
     });
     $("body").append(btnReadDocument);
     $("body").append(lblData);

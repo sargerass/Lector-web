@@ -137,7 +137,7 @@ export default {
     },
     showModal() {
       $(this.$refs.modal).modal();
-      this.web.data = {};
+      this.web = {};
     }
   }
 };

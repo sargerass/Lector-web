@@ -8,7 +8,7 @@
         <single-web-container v-if="web.data.id" ></single-web-container>
       </div>
     </div>
-    <notifications group="notificacion" />
+    <notifications group="notificacion" position="bottom right"/>
   </div>  
   
 </template>

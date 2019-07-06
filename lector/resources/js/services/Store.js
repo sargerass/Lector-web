@@ -18,7 +18,6 @@ export const store = new Vuex.Store({
 		showNotification(state,options){
 			state.views.panel.$notify({
 				group: 'notificacion',
-				position: "bottom right",
 				...options
       });
 		}

@@ -2056,8 +2056,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       arrayColors: []
     };
   },
-  mounted: function mounted() {
+  created: function created() {
     _services_EventBus_js__WEBPACK_IMPORTED_MODULE_0__["EventBus"].$on("loadInfoWeb", this.loadInfo);
+  },
+  mounted: function mounted() {
+    //EventBus.$on("loadInfoWeb",this.loadInfo);
+    this.loadInfo();
   },
   components: {
     ImagePresentation: _presentations_ImagePresentation_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
@@ -2243,7 +2247,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     showModal: function showModal() {
       $(this.$refs.modal).modal();
-      this.web.data = {};
+      this.web = {};
     }
   }
 });
@@ -49823,7 +49827,9 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("notifications", { attrs: { group: "notificacion" } })
+      _c("notifications", {
+        attrs: { group: "notificacion", position: "bottom right" }
+      })
     ],
     1
   )
@@ -65677,8 +65683,7 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   mutations: {
     showNotification: function showNotification(state, options) {
       state.views.panel.$notify(_objectSpread({
-        group: 'notificacion',
-        position: "bottom right"
+        group: 'notificacion'
       }, options));
     }
   }
