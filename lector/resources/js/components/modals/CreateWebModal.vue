@@ -76,7 +76,11 @@
               >
               </textarea>
             </div>
-            <div class="text-center">
+            <div>
+              <button class="btn btn-link" @click="verScript">Ver Script</button>
+            </div>
+            <br>
+            <div class="text-center">              
               <button type="submit" class="btn btn-dark">
                 Crear Página
               </button>
@@ -85,9 +89,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <!--
-          <button type="button" class="btn btn-primary">Save changes</button>
-          -->
+          
         </div>
       </div>
     </div>
@@ -113,23 +115,25 @@ export default {
     };
   },
   mounted() {
-    console.log("modal.",this.web);
+    console.log("modal.",this.web, this.load);
   },
   computed: {
-    //...mapState(["web"])
+    ...mapState(["statusPage"])
   },
   methods: {
+    ...mapMutations(['verScript']),
     checkForm(e){
       e.preventDefault();
       if(this.errors.items.length == 0){
-        
+        this.statusPage.block = true;    
         axios.post("/web", this.web).then( (res) =>{
           if(res.data.status == 1){
             $(this.$refs.modal).modal('hide');
             this.$emit("webCreated");
           }
+          this.statusPage.block = false;
         },error=>{
-
+          this.statusPage.block = false;
         });
         
       }

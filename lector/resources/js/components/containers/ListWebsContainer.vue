@@ -45,13 +45,7 @@ export default {
     ...mapState(["web"])
   },
   methods: {
-    ...mapMutations(["showNotification"]),
-    verScript() {
-      window.open("/assets/lector.js", "_blank");
-      return;
-      this.$clipboard(this.lectorJS);
-      //this.$refs.lectorScriptModal.showModal();
-    },
+    ...mapMutations(["showNotification", 'verScript']),
     addPage() {
       this.$refs.createWebModal.showModal();
     },

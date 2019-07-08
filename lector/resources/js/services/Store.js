@@ -4,6 +4,9 @@ import Vuex from 'vuex';
 Vue.use(Vuex);
 export const store = new Vuex.Store({
 	state: {
+		statusPage:{
+			block:false,
+		},		
 		web: {
 			data: {}
 		},
@@ -20,6 +23,9 @@ export const store = new Vuex.Store({
 				group: 'notificacion',
 				...options
       });
-		}
+		},
+		verScript() {
+      window.open("/assets/lector.js", "_blank");
+    }
 	}
 });

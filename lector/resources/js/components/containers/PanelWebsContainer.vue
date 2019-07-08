@@ -9,6 +9,7 @@
       </div>
     </div>
     <notifications group="notificacion" position="bottom right"/>
+    <loader-web v-show="statusPage.block"></loader-web>
   </div>  
   
 </template>
@@ -21,7 +22,7 @@ export default {
     this.views.panel = this;
   },
   computed:{
-    ...mapState(["web", 'views'])
+    ...mapState(["web", 'views', 'statusPage'])
   },
   methods:{
     

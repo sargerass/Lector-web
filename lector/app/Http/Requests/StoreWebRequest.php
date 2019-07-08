@@ -25,7 +25,7 @@ class StoreWebRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'url' => 'required|url|unique:webs,url',
+            //'url' => 'required|url|unique:webs,url',
             'description' => 'required',
             'data' => 'required|json',
             'users_id' => 'exists:users,id',
