@@ -6,9 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Web extends Model
 {
-    //
     protected $fillable = [ 'name', 'description', 'url', 'data' ];
-    //protected $hidden = ["created_at","updated_at","user_id"];
     protected $visible = ['name', 'description', 'url',"id"];
     public function colors(){
         return $this->hasMany('App\Models\Color');
@@ -19,4 +17,9 @@ class Web extends Model
     public function fonts(){
         return $this->hasMany('App\Models\Font');
     }
+    public static function lasts(){
+        return Web::where("status", 'active')->select('id', 'name', 'url')->orderBy('created_at', 'DESC')
+                ->limit(12)->get();
+    }
 }
+

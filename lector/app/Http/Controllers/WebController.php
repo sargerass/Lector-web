@@ -20,6 +20,12 @@ class WebController extends Controller
 		 *
 		 * @return \Illuminate\Http\Response
 		 */
+		public function welcome(){
+			$arrayWebs = Web::lasts();
+			//return $arrayWebs;
+			return view("welcome",compact("arrayWebs"));
+			
+		}
 		public function index()
 		{
 				$user = Auth::user();

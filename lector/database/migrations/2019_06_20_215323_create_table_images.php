@@ -15,7 +15,7 @@ class CreateTableImages extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('link');
+            $table->longText('link');
             $table->string('format')->nullable();
             $table->unsignedBigInteger('web_id')->nullable();
             $table->foreign('web_id')->references('id')->on('webs');

@@ -36,7 +36,14 @@
                 <h2>
                     Ultimas webs traquiadas
                 </h2>
-            </div>       
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    @foreach($arrayWebs as $key => $web)
+                        {{$key}}
+                    @endforeach
+                </div>
+            </div>  
         </div>
         
     </body>
