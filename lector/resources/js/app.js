@@ -24,14 +24,21 @@ Vue.use(VeeValidate,{
 });
 
 Validator.localize(dictionaryForms);
-
-
+/*
+import ImagePresentation from "../presentations/ImagePresentation.vue";
+import ColorPresentation from "../presentations/ColorPresentation.vue";
+import FontPresentation from "../presentations/FontPresentation.vue";
+*/
 Vue.component('list-webs-container', require('./components/containers/ListWebsContainer.vue').default);
 Vue.component('panel-webs-container', require('./components/containers/PanelWebsContainer.vue').default);
 Vue.component('single-web-container', require('./components/containers/SingleWebContainer.vue').default);
 Vue.component('create-web-modal', require('./components/modals/CreateWebModal.vue').default);
 Vue.component('lector-script-modal', require('./components/modals/LectorScriptModal.vue').default);
 Vue.component('loader-web', require('./components/utils/LoaderWeb.vue').default);
+
+Vue.component('image-presentation', require('./components/presentations/ImagePresentation.vue').default);
+Vue.component('color-presentation', require('./components/presentations/ColorPresentation.vue').default);
+Vue.component('font-presentation', require('./components/presentations/FontPresentation.vue').default);
 
 import {store} from "./services/Store.js";
 

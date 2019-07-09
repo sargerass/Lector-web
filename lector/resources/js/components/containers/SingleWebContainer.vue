@@ -55,13 +55,9 @@
 <style lang="scss" scoped>
   
 </style>
-
-
 <script>
 import {EventBus} from "../../services/EventBus.js";
-import ImagePresentation from "../presentations/ImagePresentation.vue";
-import ColorPresentation from "../presentations/ColorPresentation.vue";
-import FontPresentation from "../presentations/FontPresentation.vue";
+
 import {mapState, mapMutations, mapActions} from "vuex";
 export default {
   name: "single-web-container",
@@ -81,7 +77,7 @@ export default {
     this.loadInfo();
   },
   components:{
-    ImagePresentation,ColorPresentation,FontPresentation
+    //ImagePresentation,ColorPresentation,FontPresentation
   },
   computed:{
     ...mapState(["web"])

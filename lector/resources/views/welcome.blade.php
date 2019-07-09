@@ -1,50 +1,54 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
-
-        <link rel="stylesheet" href="/css/app.css">
-    </head>
-    <body>
-        <header class="container-fluid d-flex justify-content-end">
-
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a class="btn btn-link" href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a class="btn btn-dark" href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a class="btn btn-primary"  href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-        </header>
-        <div>
-            <div class="container">
-                <h1>
-                    Lector Web
-                </h1>
-                <p>
-                    Web para practicar tu maquetación.                    
-                </p>
-                <h2>
-                    Ultimas webs traquiadas
-                </h2>
-            </div>
-            <div class="container-fluid">
-                <div class="row">
-                    @foreach($arrayWebs as $key => $web)
-                        {{$key}}
-                    @endforeach
-                </div>
-            </div>  
-        </div>
-        
-    </body>
-</html>
+@extends('layouts.app')
+@section('content')
+	<div>
+		<div class="container">
+			<h1>
+				Lector Web
+			</h1>
+			<p>
+				Web para practicar tu maquetación.
+			</p>
+			<h2>
+				Ultimas webs traquiadas
+			</h2>
+		</div>
+		<div class="container-fluid">
+			<div class="row">
+				@foreach($arrayWebs as $key => $web)
+					<div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+						<div class="card" >
+							<div class="images-preview">
+								@foreach($web->imagesr as $k => $image)
+									@php
+										$x = rand(0,100).'%';
+										$y = rand(0,100).'%';
+										$style = "left: $x; top: $y;";
+									@endphp
+									<img class='images-preview__image' style="{{$style}}" src="{{$image->link}}" alt="{{$web->name}}">
+								@endforeach
+							</div>
+							<div class="bar-preview">
+								@foreach($web->colors as $k => $color)
+									<div class="bar-preview__color" style="background: {{$color->hexa}};" >
+										
+									</div>
+								@endforeach
+							</div>
+							<div class="card-body text-center">
+								<h5 class="card-title">
+									{{$web->name}}
+								</h5>
+								<p>
+									{{$web->description}}
+								</p>
+								<a href="/page/{{$web->id}}" class="btn btn-primary">
+									Ver datos
+								</a>
+							</div>
+						</div>
+					</div>
+				@endforeach
+			</div>
+		</div>
+	</div>
+@endsection

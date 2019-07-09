@@ -11,7 +11,9 @@
 |
 */
 
+
 Route::get('/', "WebController@welcome");
+Route::resource('/page', "PageController");
 
 Auth::routes();
 

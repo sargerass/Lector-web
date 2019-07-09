@@ -1,8 +1,36 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+//@import url("https://fonts.googleapis.com/css?family=Nunito");
 
 // Variables
-@import 'variables';
+@import "variables";
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
+.card{
+  margin-bottom: 1rem;
+}
+.images-preview {
+  position: relative;
+  overflow: hidden;
+  background: #eee;
+  &::before {
+    display: block;
+    content: "";
+    padding-top: 150%;
+  }
+  &__image {
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 30%;
+    transform: translate(-50%, -50%);
+  }
+}
+.bar-preview{
+  display: flex;
+  &__color{
+    height: 20px;
+    width: 100%;
+  }
+}
